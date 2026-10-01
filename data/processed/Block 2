@@ -1,11 +1,1 @@
-Block 2 — WSD + LAJ
-Name: Lohi
-Dataset name, description, source link, licence
-Construction process for each (WSD manually compiled; LAJ adapted from SiniticMTError)
-Target/task in one line each
-2–3 sample rows from each
-Note that LAJ ships in two forms — fine-tune and comparison — and which we use
-Class balance plots (WSD is heavily imbalanced: 2,032 not_similar / 436 similar)
-Text length histograms
-One or two sentences under each figure
-Cleaning checks and write-up
+
