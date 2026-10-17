@@ -56,8 +56,8 @@ def load_nli():
         
         pairs = []
         for anchor, positive, negative in zip(anchors, positives, negatives):
-            pairs.append((anchor, positive, "entailment")) 
-            pairs.append((anchor, negative, "not_entailment"))  
+            pairs.append((anchor, positive, "entailment"))
+            pairs.append((anchor, negative, "not_entailment"))
         return pairs
 
     train = unroll(dataset["train"])
@@ -90,7 +90,7 @@ def stratified_sample(data, n, seed=42):
     rng.shuffle(sampled)
     return sampled
 
- # load sample NLI data for testing
+ # load the committed 100 row sample for each task
 
 def load_sample(task):
     path = DATA_DIR.parents[1] / "sample" / f"{task}_sample.jsonl"

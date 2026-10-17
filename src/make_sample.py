@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 from src.data import load_ld, load_sentiment, load_nli
-from src.data import stratified_sample, DATA_DIR
+from src.data import stratified_sample
 
 # output folder: repo_root/data/sample
 OUT_DIRECTORY = Path(__file__).resolve().parents[1] / "data" / "sample"
