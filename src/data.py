@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "canto-nlu" / "data"
+DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
 
 def load_jsonl(path: Path) -> list[dict]:
     items = []

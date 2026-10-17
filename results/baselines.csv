@@ -1,0 +1,3 @@
+task,model,split,n,accuracy,macro_f1
+LD,char_tfidf_logistic_regression,test,2341,0.709525843656557,0.6158683425941506
+sentiment,char_tfidf_logistic_regression,test,999,0.7457457457457457,0.7405537131838686
