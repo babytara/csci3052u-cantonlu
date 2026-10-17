@@ -1,7 +1,9 @@
 # data loading
 import json
+import random
 from pathlib import Path
 from datasets import load_dataset
+from collections import defaultdict
 
 NLI_REPOSITORY = "hon9kon9ize/yue-all-nli"
 NLI_REVISION = "f43c2e709cc3bd448a9c5d5cb5465646cd5f36bb"
@@ -64,3 +66,33 @@ def load_nli():
 
     return train, valid, test
 
+def stratified_sample(data, n, seed=42):
+    if n > len(data):
+        raise ValueError(f"n - {n} larger than dataset size - ({len(data)})")
+
+    rng = random.Random(seed)
+    groups = defaultdict(list)
+    for row in data: groups[row[-1]].append(row)
+    
+    total = len(data)
+    # proportional counts for each label
+    counts = {label: int(len(rows) / total * n) for label, rows in groups.items()}
+
+    # rounding adjustment 
+    missing = n - sum(counts.values())
+
+    if missing:
+        largest_label = max(groups, key=lambda lbl: len(groups[lbl]))
+        counts[largest_label] += missing
+
+    # sample the data & shuffle
+    sampled = [row for label, rows in groups.items() for row in rng.sample(rows, counts[label])]
+    rng.shuffle(sampled)
+    return sampled
+
+ # load sample NLI data for testing
+
+def load_sample(task):
+    path = DATA_DIR.parents[1] / "sample" / f"{task}_sample.jsonl"
+    rows = load_jsonl(path)
+    return [tuple(row) for row in rows]
