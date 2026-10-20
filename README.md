@@ -84,6 +84,7 @@ train_small = stratified_sample(train, 50_000, seed=42)
 from src.data import load_sample
 ld_sample = load_sample("ld")   # also "sentiment" and "nli"
 ```
+**LD + Sentiment Baseline.** 'python -m ld_sentiment_baseline.py' is used to get baseline for LD and sentiment results
 
 ## Reproducing results
 
