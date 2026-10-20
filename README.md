@@ -11,7 +11,8 @@ This project looks at how well large language models understand Cantonese using 
 | `src/data.py` | Data loaders for the three tasks and a seeded stratified sampler |
 | `notebooks/` | Exploration and data-processing notebooks |
 | `data/` | Data instructions (`data/README.md`) |
-| `results/` | Experiment results (`baselines.csv`, one row per run) |
+| `data/sample/` | Committed 100-row samples for LD, sentiment, and NLI |
+| `results/` | Baseline metrics (`baselines.csv`) and experiment logs (`runs.jsonl`) |
 | `reports/` | Figures and report material |
 | `requirements.txt` | Python dependencies |
 | `AI_USE.md`, `CONTRIBUTIONS.md` | AI-use disclosure and contribution record |
@@ -19,8 +20,6 @@ This project looks at how well large language models understand Cantonese using 
 **Note:** The CantoNLU files are cloned into `data/canto-nlu/` and are git-ignored
 
 ## Setup
-
-Tested on Python 3.13.
 
 ```bash
 git clone https://github.com/babytara/csci3052u-cantonlu.git
@@ -84,11 +83,22 @@ train_small = stratified_sample(train, 50_000, seed=42)
 from src.data import load_sample
 ld_sample = load_sample("ld")   # also "sentiment" and "nli"
 ```
-**LD + Sentiment Baseline.** 'python -m ld_sentiment_baseline.py' is used to get baseline for LD and sentiment results
 
 ## Reproducing results
-The **naive benchmark** predicts the most common training label for each test example in LD, sentiment, and NLI. Character n-gram TF-IDF features were used to build a logistic regression for NLI. For the NLI TF-IDF baseline, each example has a premise and a hypothesis, which receive a separate vectorizer that fits only on the training split, and their feature matrices are combined with logistic regression before classification. Given the large training set, the NLI classifier uses a stratified random sample of 100,000 pairs for efficient tuning, while validation and test sets remain the same. The best settings, as well as the character n-gram ranges, and C values were tested, where the best one was then selected using validation macro-F1. On the test set, the selected model uses n-grams [1, 3], and C = 1.0, achieving a validation macro-F1 of approximately 0.6945.
-| task | model | split | n | accuracy | macro_f1 |
+
+From the repository root, after installing dependencies and downloading the datasets, run:
+
+```bash
+python -m src.naive_nli_baseline
+python -m src.ld_sentiment_baseline
+```
+Both scripts skip results already recorded in results/baselines.csv. To regenerate results, back up the existing results first. Experiment settings and software versions are saved in results/runs.jsonl.
+
+The **naive benchmark** predicts the most common training label for each test example in LD, sentiment, and NLI. Character n-gram TF-IDF features were used to build a logistic regression for NLI. For the NLI TF-IDF baseline, each example has a premise and a hypothesis, which receive a separate vectorizer that fits only on the training split, and their feature matrices are combined with logistic regression before classification. Given the large training set, the NLI classifier uses a stratified random sample of 100,000 pairs for efficient tuning, while validation and test sets remain the same. The best settings, as well as the character n-gram ranges, and C values were tested, where the best one was then selected using validation macro-F1. The model selected using validation macro-F1 uses character n-grams (1,3) and C=1.0, achieving a validation macro-F1 of approximately 0.6945. Its test accuracy was 0.7071 and test macro-F1 was 0.7070.
+
+**LD and sentiment TF-IDF + logistic regression.** Both tasks use character-level TF-IDF features with logistic regression. The tuning grid includes n-gram ranges (2,5), (3,5), and (2,6), with C values 0.1, 1.0, and 10.0. Hyperparameters are selected using validation macro-F1. Both tasks selected n-grams (2,5) and C=10.0. The experiments use random seed 42 and a maximum of 2,000 logistic regression iterations.
+
+| Task | Model | Split | n | Accuracy | Macro_f1 |
 |---|---|---|---|---|---|
 | LD | char_tfidf_logistic_regression | test | 2341 | 0.709525843656557 | 0.6158683425941506 |
 | sentiment | char_tfidf_logistic_regression | test | 999 | 0.7457457457457457 | 0.7405537131838686 |
