@@ -87,14 +87,15 @@ ld_sample = load_sample("ld")   # also "sentiment" and "nli"
 **LD + Sentiment Baseline.** 'python -m ld_sentiment_baseline.py' is used to get baseline for LD and sentiment results
 
 ## Reproducing results
-
-task,model,split,n,accuracy,macro_f1
-LD,char_tfidf_logistic_regression,test,2341,0.709525843656557,0.6158683425941506
-sentiment,char_tfidf_logistic_regression,test,999,0.7457457457457457,0.7405537131838686
-LD,majority_class,test,2341,0.6608287056813328,0.26526063100137176
-sentiment,majority_class,test,999,0.3333333333333333,0.16666666666666666
-NLI,majority_class,test,13202,0.5,0.3333333333333333
-NLI,char_tfidf_logistic_regression,test,13202,0.707089834873504,0.7070092111707432
+The **naive benchmark** predicts the most common training label for each test example in LD, sentiment, and NLI. Character n-gram TF-IDF features were used to build a logistic regression for NLI. For the NLI TF-IDF baseline, each example has a premise and a hypothesis, which receive a separate vectorizer that fits only on the training split, and their feature matrices are combined with logistic regression before classification. Given the large training set, the NLI classifier uses a stratified random sample of 100,000 pairs for efficient tuning, while validation and test sets remain the same. The best settings, as well as the character n-gram ranges, and C values were tested, where the best one was then selected using validation macro-F1. On the test set, the selected model uses n-grams [1, 3], and C = 1.0, achieving a validation macro-F1 of approximately 0.6945.
+| task | model | split | n | accuracy | macro_f1 |
+|---|---|---|---|---|---|
+| LD,char_tfidf_logistic_regression | test | 2341 | 0.709525843656557 | 0.6158683425941506 |
+| sentiment | char_tfidf_logistic_regression | test | 999 | 0.7457457457457457 | 0.7405537131838686 |
+| LD | majority_class | test | 2341 | 0.6608287056813328 | 0.26526063100137176 |
+| sentiment | majority_class | test | 999 | 0.3333333333333333 | 0.16666666666666666 |
+| NLI | majority_class | test | 13202 | 0.5 | 0.3333333333333333 |
+| NLI | char_tfidf_logistic_regression | test | 13202 | 0.707089834873504 | 0.7070092111707432 |
 
 ## Source, licence and attribution
 
