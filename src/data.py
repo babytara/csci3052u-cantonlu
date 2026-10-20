@@ -8,7 +8,6 @@ from collections import defaultdict
 NLI_REPOSITORY = "hon9kon9ize/yue-all-nli"
 NLI_REVISION = "f43c2e709cc3bd448a9c5d5cb5465646cd5f36bb"
 
-DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
 # path to the data directory
 DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "canto-nlu" / "data"
 
