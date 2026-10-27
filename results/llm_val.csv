@@ -1,0 +1,4 @@
+task,model,split,n,accuracy,macro_f1,unparsed
+LD,claude-haiku-4-5-20251001,val_subset,100,0.53,0.46282489385937664,0
+sentiment,claude-haiku-4-5-20251001,val_subset,100,0.79,0.7653503269941625,0
+NLI,claude-haiku-4-5-20251001,val_subset,100,0.89,0.8891017239641092,0
