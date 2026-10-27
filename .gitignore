@@ -1,2 +1,3 @@
 # GitIgnore File
 data/canto-nlu/
+__pycache__/
