@@ -8,3 +8,5 @@ LD,char_tfidf_logistic_regression,test,2341,0.7099530115335326,0.618586830521300
 sentiment,char_tfidf_logistic_regression,test,999,0.7457457457457457,0.7405537131838686
 LD,char_tfidf_logistic_regression,test,2341,0.7099530115335326,0.6185868305213008
 sentiment,char_tfidf_logistic_regression,test,999,0.7457457457457457,0.7405537131838686
+LD,char_tfidf_logistic_regression,test,2341,0.7099530115335326,0.6185868305213008
+sentiment,char_tfidf_logistic_regression,test,999,0.7457457457457457,0.7405537131838686
