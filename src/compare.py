@@ -1,4 +1,4 @@
-# python -m src.compare.py
+# python -m src.compare
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -57,8 +57,7 @@ for r in table.itertuples(index=False):
     print("| " + " | ".join(map(str, r)) + " |")
 
 # Confusion Matrics
-labels = ["smile", "ok", "cry"]
-def plot_confusion_matrix(y_true, y_pred, group, out_path=None):
+def plot_confusion_matrix(y_true, y_pred, labels, group, out_path=None):
     
     cm = confusion_matrix(y_true, y_pred, labels=labels)
     cm_norm = confusion_matrix(y_true, y_pred, labels=labels, normalize="true")
@@ -79,15 +78,19 @@ def plot_confusion_matrix(y_true, y_pred, group, out_path=None):
 
 #Highest prediction accuracy sentiment: tfidf_lr from the baseline validation
 d = df[(df["task"] == "sentiment") & (df["model"] == "tfidf_lr")]
-plot_confusion_matrix(d["gold"], d["pred"], labels=labels, title="Sentiment - tfidf_lr", 
-                      out_path=RESULTS / "confusion_matrix_sentiment_tfidf_lr.png") 
+plot_confusion_matrix(d["gold"], d["pred"], ["smile", "ok", "cry"],
+                      "Sentiment - tfidf_lr",
+                      RESULTS / "confusion_matrix_sentiment_tfidf_lr.png")
 
-#Lowest Macro_f1 LD: majority from the baseline validation
+# Lowest macro-F1, LD: majority
 d = df[(df["task"] == "LD") & (df["model"] == "majority")]
-plot_confusion_matrix(d["gold"], d["pred"], labels=labels, title="LD - majority", 
-                      out_path=RESULTS / "confusion_matrix_ld_majority.png")
-      
-#Highest prediction accuracy NLI: claude-haiku-4-5-20251001 from the llm validation
-d = df[(df["task"] == "NLI") & (df["model"] == "claude-haiku-4-5-20251001")]
-plot_confusion_matrix(d["gold"], d["pred"], labels=labels, title="NLI - claude-haiku-4-5-20251001", 
-                      out_path=RESULTS / "confusion_matrix_nli_claude_haiku_4_5_20251001.png")       
+plot_confusion_matrix(d["gold"], d["pred"], ["Cantonese", "Mandarin", "corrupted"], 
+                      "LD - majority",
+                      RESULTS / "confusion_matrix_ld_majority.png")
+
+# Highest accuracy, NLI: Claude Haiku
+d = df[(df["task"] == "NLI") & (df["model"] == "claude-haiku-4-5")]
+plot_confusion_matrix(d["gold"], d["pred"], ["entailment", "not_entailment", "UNPARSED"],
+                      "NLI - claude-haiku-4-5",
+                      RESULTS / "confusion_matrix_nli_claude_haiku.png")  
+
