@@ -86,9 +86,13 @@ if __name__ == "__main__":
             print(row)
         all_summary += s
         all_preds += p
-    (RESULTS / "baseline_preds.jsonl").unlink(missing_ok=True)
+ 
     with (RESULTS / "baseline_val.csv").open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["task", "model", "split", "n", "accuracy", "macro_f1"])
         w.writeheader()
         w.writerows(all_summary)
+ 
+    with (RESULTS / "baseline_preds.jsonl").open("w", encoding="utf-8") as f:
+        for x in all_preds:
+            f.write(json.dumps(x, ensure_ascii=False) + "\n")
 
