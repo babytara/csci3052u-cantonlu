@@ -1,0 +1,4 @@
+task,model,split,variant,n,accuracy,macro_f1,unparsed
+NLI,claude-haiku-4-5-20251001,test,definition,13202,0.8752461748219966,0.8737902493336575,4
+sentiment,claude-haiku-4-5-20251001,test,definition,999,0.7317317317317318,0.677311743617452,0
+LD,claude-haiku-4-5-20251001,test,definition,2341,0.5378043571123452,0.4790470827227762,0

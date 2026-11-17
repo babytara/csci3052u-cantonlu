@@ -1,0 +1,3 @@
+task,model,split,variant,n,accuracy,macro_f1,unparsed
+LD,claude-haiku-4-5-20251001,val_subset,with_definition,100,0.53,0.46282489385937664,0
+LD,claude-haiku-4-5-20251001,val_subset,no_definition,100,0.42,0.43279857397504456,0
