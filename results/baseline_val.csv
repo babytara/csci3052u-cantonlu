@@ -1,0 +1,7 @@
+task,model,split,n,accuracy,macro_f1
+LD,majority,val_subset,100,0.68,0.2698412698412698
+LD,tfidf_lr,val_subset,100,0.76,0.6020923520923521
+sentiment,majority,val_subset,100,0.34,0.1691542288557214
+sentiment,tfidf_lr,val_subset,100,0.77,0.7730418943533698
+NLI,majority,val_subset,100,0.5,0.3333333333333333
+NLI,tfidf_lr,val_subset,100,0.76,0.7536945812807883

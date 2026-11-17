@@ -19,3 +19,10 @@
 
 - **Model:** Claude Haiku 4.5 (`claude-haiku-4-5-20251001`), Anthropic API, run on Oct 27, 2026. Zero-shot prompts are in `src/llm_eval.py`. Temperature was left at default.
 - A first trial on Gemini 3.1 Flash-Lite was abandoned because of repeated 503 errors, and its results are not used.
+## Olohigbe Uantioje - Milestone 3-4
+**Tools used:** Claude </br>
+Used for coding and explanation 
+
+### Comparison and Confusion Analysis
+- Used to follow the structure of the LLM Evaluation prompt to give a similar format, as well as correct code for `compare.py` to grab `baseline_val.jsonl` and `llm_val.jsonl` properly
+- Used to understand the different implications of having a 3-by-3 confusion matrix due to having more than two labels within each model.
