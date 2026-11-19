@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/results/baselines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/baselines.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/runs.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/results/runs.jsonl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/baseline_preds.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/results/baseline_preds.jsonl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/baseline_val.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/baseline_val.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/baseline_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/baseline_eval.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +17,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -22,12 +30,16 @@
     &quot;assignee&quot;: &quot;Catsomiac&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/babytara/csci3052u-cantonlu.git&quot;,
-    &quot;accountId&quot;: &quot;198d03c4-0adf-47c6-8a5f-aedbd78ae187&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/babytara/csci3052u-cantonlu.git",
+    "accountId": "fedfc447-8d29-4caf-ba51-0f30a33f3692"
   }
-}</component>
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7,
   &quot;fromUser&quot;: false
@@ -39,14 +51,23 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "gabriel2",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -64,6 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1792470539869</updated>
+      <workItem from="1795115719437" duration="1733000" />
     </task>
     <servers />
   </component>
