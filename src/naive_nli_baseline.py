@@ -20,6 +20,8 @@ from sklearn.linear_model import LogisticRegression
 
 from src.data import load_ld, load_sentiment, load_nli, stratified_sample
 
+from src.predictions import save_predictions
+
 # Setting directory and file paths
 rootDir = Path(__file__).resolve().parents[1]
 resultsDir = rootDir / "results"
@@ -31,7 +33,7 @@ columns = ["task", "model", "split", "n", "accuracy", "macro_f1"]
 
 # the search space for tuning, where the validation set will pick the best pair
 n_range = [(1, 2), (1, 3), (1, 4)]
-c_values = [0.1, 1.0, 10.0]
+c_values = [0.1, 1.0, 10.0, 100.0, 1000.0]
 
 # settings for nli
 # the number of training pairs used since the full set has alot (can test different values). (will be a stratified sample)
@@ -107,6 +109,9 @@ def run_majority(task, y_train, y_test):
     # predicts the most common label for each test example and gets its scores
     test_metrics = metrics(y_test, [majority_label] * len(y_test))
 
+    #Needed for new predictions
+    save_predictions(task, naive, y_test, [majority_label] * len(y_test))
+
     # saves the results and the run
     append_result({"task": task, "model": naive, "split": "test", "n": len(y_test), **test_metrics})
     append_run(
@@ -171,8 +176,12 @@ def run_nli_tfidf(splits):
                     "classifier": classifier
                 }
 
-    # scores the best model on the test set
-    test_metrics = metrics(test["label"], best["classifier"].predict(best["features"].transform(test[inputs])))
+    # scores the best model on the test set // This got replaced for the predictions
+    ##test_metrics = metrics(test["label"], best["classifier"].predict(best["features"].transform(test[inputs])))
+
+    test_predictions = best["classifier"].predict(best["features"].transform(test[inputs]))
+    test_metrics = metrics(test["label"], test_predictions)
+    save_predictions("NLI", tfidf_model, list(test["label"]), test_predictions)
 
     # logs the result of the test
     append_result({"task": "NLI", "model": tfidf_model, "split": "test", "n": len(test), **test_metrics})
