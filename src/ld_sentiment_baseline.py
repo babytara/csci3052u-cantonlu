@@ -13,6 +13,8 @@ from sklearn.pipeline import Pipeline
 
 from src.data import load_ld, load_sentiment
 
+from src.predictions import save_predictions
+
 SEED = 42
 random.seed(SEED)
 
@@ -22,7 +24,7 @@ baselines_path = resultsDir / "baselines.csv"
 runPath = resultsDir / "runs.jsonl"
 
 nRange = [(2, 5), (3, 5), (2, 6)]
-cValues = [0.1, 1.0, 10.0]
+cValues = [0.1, 1.0, 10.0, 100.0, 1000.0]
 modelName = "char_tfidf_logistic_regression"
 columns = ["task", "model", "split", "n", "accuracy", "macro_f1"]
 
@@ -90,8 +92,17 @@ def append_run(record):
     with runPath.open("a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
+def already_logged(task):
+    if not baselines_path.exists():
+        return False
+    with baselines_path.open(newline="", encoding="utf-8") as f:
+        return any(r["task"] == task and r["model"] == modelName for r in csv.DictReader(f))
+
 #Main task
 def run_task(task, splits):
+    if already_logged(task):
+        print(f"{task}: {modelName} is already logged in {baselines_path.name}.")
+        return None
     train, val, test = splits
     X_train, y_train = unpack_split(train, task, "train")
     X_val, y_val = unpack_split(val, task, "validation")
@@ -137,6 +148,9 @@ def run_task(task, splits):
 
     test_predictions = best_model.predict(X_test)
     test_metrics = metrics(y_test, test_predictions)
+
+    #Needed for new predictions
+    save_predictions(task, modelName, y_test, test_predictions)
 
     result = {
         "task": task,

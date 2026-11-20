@@ -1,6 +1,6 @@
 #Majority-class and TF-IDF + logistic regression baselines, scored on the
 
-#Run from the project root:  python -m src.baselines_eval
+#Run from the project root:  python -m src.baseline_eval
 
 import csv, json, random
 from collections import Counter
@@ -12,6 +12,8 @@ from sklearn.metrics import accuracy_score, f1_score
 from sklearn.pipeline import make_pipeline
 
 from src.data import load_ld, load_sentiment, load_nli, stratified_sample
+from src.ld_sentiment_baseline import make_model                    # char TF-IDF + LR pipeline
+from src.naive_nli_baseline import dataframe_convert, make_features, max_features, train_size
 
 
 # Same subset settings as llm_eval.py
@@ -25,6 +27,12 @@ TASKS = {
     "NLI": (load_nli, ["entailment", "not_entailment"]),
 }
 
+CONFIG = {
+    "LD": ((2, 5), 100.0),
+    "sentiment": ((2, 6), 1000.0),
+    "NLI": ((1, 3), 1.0),
+}
+
 
 def gold_label(row, names):
     g = row[-1]
@@ -34,35 +42,40 @@ def gold_label(row, names):
 def to_text(row):
     return " [SEP] ".join(str(x) for x in row[:-1])
 
+def fit_predict(task, names, train, sample):
+    ngram_range, c_value = CONFIG[task]
+    if task == "NLI":
+        train_frame = dataframe_convert(stratified_sample(train, train_size, seed=SEED))
+        sample_frame = dataframe_convert(sample)
+
+        inputs = ["premise", "hypothesis"]
+
+        features = make_features(ngram_range, max_features)
+        classifier = LogisticRegression(C=c_value, max_iter=2000, random_state=SEED)
+        classifier.fit(features.fit_transform(train_frame[inputs]), train_frame["label"])
+        return list(classifier.predict(features.transform(sample_frame[inputs])))
+    model = make_model(ngram_range, c_value)
+    model.fit([r[0] for r in train], [gold_label(r, names) for r in train])
+    return list(model.predict([r[0] for r in sample]))
+
 
 def run(task):
     loader, names = TASKS[task]
-    train, val, _test = loader()  # every loader in data.py returns (train, val, test)
-    if MAX_TRAIN and len(train) > MAX_TRAIN:
-        train = random.Random(SEED).sample(train, MAX_TRAIN)
-
-
+    train, val, _test = loader()          # every loader returns (train, val, test)
     sample = stratified_sample(val, N, seed=SEED)
 
-    train_text = [to_text(r) for r in train]
     train_gold = [gold_label(r, names) for r in train]
-    test_text = [to_text(r) for r in sample]
+    text = [to_text(r) for r in sample]
     gold = [gold_label(r, names) for r in sample]
 
     majority = Counter(train_gold).most_common(1)[0][0]
-    preds = {"majority": [majority] * len(sample)}
-
-    tfidf_lr = make_pipeline(
-        TfidfVectorizer(analyzer="char", ngram_range=(1, 3)),
-        LogisticRegression(max_iter=1000),
-    )
-    tfidf_lr.fit(train_text, train_gold)
-    preds["tfidf_lr"] = list(tfidf_lr.predict(test_text))
+    preds = {"majority": [majority] * len(sample),
+             "tfidf_lr": fit_predict(task, names, train, sample)}
 
     llm_file = RESULTS / "llm_preds.jsonl"
     if llm_file.exists():
-        llm_gold = [d["gold"] for d in map(json.loads, llm_file.open(encoding="utf-8"))
-                    if d["task"] == task]
+        with llm_file.open(encoding="utf-8") as f:
+            llm_gold = [d["gold"] for d in map(json.loads, f) if d["task"] == task]
         if llm_gold and llm_gold != gold:
             print(f"WARNING: {task} subset differs from llm_preds.jsonl")
 
@@ -73,8 +86,9 @@ def run(task):
             "accuracy": accuracy_score(gold, pred),
             "macro_f1": f1_score(gold, pred, average="macro", zero_division=0),
         })
-        for text, g, p in zip(test_text, gold, pred):
-            pred_rows.append({"task": task, "model": model, "input": text, "gold": g, "pred": p})
+        for i, (t, g, p) in enumerate(zip(text, gold, pred)):
+            pred_rows.append({"task": task, "model": model, "index": i,
+                              "input": t, "gold": g, "pred": p})
     return summary, pred_rows
 
 if __name__ == "__main__":
