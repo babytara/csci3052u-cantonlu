@@ -7,3 +7,4 @@ matplotlib==3.10.6
 scikit-learn==1.7.2
 notebook==7.5.0
 anthropic==2.3.0
+statsmodels==0.17.2

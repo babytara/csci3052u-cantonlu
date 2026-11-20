@@ -1,0 +1,2 @@
+task,n,acc_with,acc_without,diff,diff_ci_low,diff_ci_high
+LD,100,0.53,0.42,0.10987999999999999,-0.010000000000000009,0.22999999999999998
