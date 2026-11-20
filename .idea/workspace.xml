@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="Completed most things for block 1, just need to write down grid">
-      <change afterPath="$PROJECT_DIR$/results/experiment_log.csv" afterDir="false" />
+    <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="Finished the experiment log. I will put everything else needed to be written down in the doc.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/experiment_log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/experiment_log.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/baseline_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/baseline_eval.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1792470539869</updated>
       <workItem from="1795115719437" duration="2644000" />
-      <workItem from="1795134357290" duration="10315000" />
+      <workItem from="1795134357290" duration="14674000" />
     </task>
     <task id="LOCAL-00001" summary="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1).">
       <option name="closed" value="true" />
@@ -124,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1795145164911</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finished the experiment log. I will put everything else needed to be written down in the doc.">
+      <option name="closed" value="true" />
+      <created>1795198385947</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1795198385948</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +142,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1)." />
     <MESSAGE value="Completed most things for block 1, just need to write down grid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed most things for block 1, just need to write down grid" />
+    <MESSAGE value="Finished the experiment log. I will put everything else needed to be written down in the doc." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the experiment log. I will put everything else needed to be written down in the doc." />
   </component>
 </project>

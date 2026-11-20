@@ -1,6 +1,6 @@
 #Majority-class and TF-IDF + logistic regression baselines, scored on the
 
-#Run from the project root:  python -m src.baselines_eval
+#Run from the project root:  python -m src.baseline_eval
 
 import csv, json, random
 from collections import Counter
@@ -45,7 +45,6 @@ def to_text(row):
 def fit_predict(task, names, train, sample):
     ngram_range, c_value = CONFIG[task]
     if task == "NLI":
-        # same features as naive_nli_baseline.py: separate premise/hypothesis vectorizers
         train_frame = dataframe_convert(stratified_sample(train, train_size, seed=SEED))
         sample_frame = dataframe_convert(sample)
 
@@ -73,7 +72,6 @@ def run(task):
     preds = {"majority": [majority] * len(sample),
              "tfidf_lr": fit_predict(task, names, train, sample)}
 
-    # make sure the LLM saw exactly these examples
     llm_file = RESULTS / "llm_preds.jsonl"
     if llm_file.exists():
         with llm_file.open(encoding="utf-8") as f:

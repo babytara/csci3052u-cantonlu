@@ -139,7 +139,7 @@ These scores are on 100 example validation subsets, so we can't compare with the
 python -m src.baseline_eval
 ```
 
-Similar to the LLM evaluation, however, this baseline evaluation uses models (TF-IDF and majority) as well as the val_subset split to double-check the accuracy and macro-f1 as seen in `results/baseline_val.csv`, matching the results in `results/baseline.csv`. The replies are stored in `results/baseline.jsonl`.
+Similar to the LLM evaluation, however, this baseline evaluation uses models (TF-IDF and majority) as well as the val_subset split to double-check the accuracy and macro-f1 as seen in `results/baseline_val.csv`, matching the results in `results/baseline.csv`. The replies are stored in `results/baseline.jsonl`. Per-example predictions are saved appended in `results/baseline_preds.jsonl`.
 
 ## Comparison
 From the repository root:
