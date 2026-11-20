@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1).">
-      <change afterPath="$PROJECT_DIR$/src/check_preds.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/predictions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="Completed most things for block 1, just need to write down grid">
+      <change afterPath="$PROJECT_DIR$/results/experiment_log.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/baseline_preds.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/results/baseline_preds.jsonl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/baseline_val.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/baseline_val.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/baselines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/pre-milestone5-results/baselines.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/runs.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/results/pre-milestone5-results/runs.jsonl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/baseline_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/baseline_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ld_sentiment_baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ld_sentiment_baseline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/naive_nli_baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/naive_nli_baseline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +27,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -85,6 +77,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pedra\Downloads\Computer Science\canto-nlu\csci3052u-cantonlu\results" />
       <recent name="C:\Users\Pedra\Downloads\Computer Science\canto-nlu\csci3052u-cantonlu\src" />
       <recent name="C:\Users\Pedra\Downloads\Computer Science\canto-nlu\csci3052u-cantonlu\results\pre-milestone5-results" />
     </key>
@@ -105,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1792470539869</updated>
       <workItem from="1795115719437" duration="2644000" />
-      <workItem from="1795134357290" duration="8855000" />
+      <workItem from="1795134357290" duration="10315000" />
     </task>
     <task id="LOCAL-00001" summary="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1).">
       <option name="closed" value="true" />
@@ -115,7 +108,23 @@
       <option name="project" value="LOCAL" />
       <updated>1795117498129</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Completed most things for block 1, just need to write down grid">
+      <option name="closed" value="true" />
+      <created>1795145155494</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1795145155494</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Completed most things for block 1, just need to write down grid">
+      <option name="closed" value="true" />
+      <created>1795145164911</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1795145164911</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +132,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1)." />
-    <option name="LAST_COMMIT_MESSAGE" value="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1)." />
+    <MESSAGE value="Completed most things for block 1, just need to write down grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed most things for block 1, just need to write down grid" />
   </component>
 </project>
