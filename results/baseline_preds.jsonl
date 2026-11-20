@@ -101,13 +101,13 @@
 {"task": "LD", "model": "tfidf_lr", "index": 0, "input": "海底的地殼錶面有很多山，包括一個全球性的中洋脊、一列沿著闆塊邊緣形成的山脊，還有好多海底火山、海溝、海底峽榖、海底高原和深海平原。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 1, "input": "但是潘個樣子實在太醜，席絲剋絲見到他就嚇得掉頭走。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 2, "input": "允第20屆日本眾議院議員總選舉喺1937年4月30日舉行。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 3, "input": "卡塔爾係君主立憲非民主製嘅酋長國，傢族世襲，禁止任何政黨活動，不受國際法院的強製管轄權。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 4, "input": "這份錶格錶示三個延和年號對應的西曆和乾支。", "gold": "Mandarin", "pred": "Mandarin"}
+{"task": "LD", "model": "tfidf_lr", "index": 3, "input": "卡塔爾係君主立憲非民主製嘅酋長國，傢族世襲，禁止任何政黨活動，不受國際法院的強製管轄權。", "gold": "corrupted", "pred": "Mandarin"}
+{"task": "LD", "model": "tfidf_lr", "index": 4, "input": "這份錶格錶示三個延和年號對應的西曆和乾支。", "gold": "Mandarin", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 5, "input": "有些樹可以生到上百米高，壽命可有數千年。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 6, "input": "他喺香港出世和長大，2004年開始做歌手，2013年底結婚後逐漸淡齣樂壇。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 7, "input": "1992年5月，生於中國東北長春市嘅李洪志創建咗法輪功，喺中國吉林省長春市勝利公園開始教授啲人修煉法輪功，12月，李洪志率弟子參加1992年東方健康博覽會。", "gold": "Cantonese", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 8, "input": "政治科學是對於政治行為嘅研究，係研究權力嘅取得同埋應用。", "gold": "corrupted", "pred": "Cantonese"}
-{"task": "LD", "model": "tfidf_lr", "index": 9, "input": "由於成功捕獲獵物的概率僅有一到兩成，通常狩獵會響夜晚或清晨涼爽嗰時候進行。", "gold": "corrupted", "pred": "corrupted"}
+{"task": "LD", "model": "tfidf_lr", "index": 9, "input": "由於成功捕獲獵物的概率僅有一到兩成，通常狩獵會響夜晚或清晨涼爽嗰時候進行。", "gold": "corrupted", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 10, "input": "每天凌晨02:45和04:15重播前一天的內容。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 11, "input": "董建華1937年7月7號（同日發生蘆溝橋事變）在上海出世，1947年成家人搬咗去香港落腳。", "gold": "corrupted", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 12, "input": "硫酸也可以用來製都弱酸。", "gold": "corrupted", "pred": "Mandarin"}
@@ -126,12 +126,12 @@
 {"task": "LD", "model": "tfidf_lr", "index": 25, "input": "2006年：北愛爾蘭首府貝爾法斯特的機場以當地出世、去年死嘅曼聯足球員佐治貝斯重新命名。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 26, "input": "除咗禁學路段邊裏得可以去，而且只以喺學車時間內揸駛。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 27, "input": "之後，他舉行瞭大規模的世界巡迴演唱會，地點包括：北京、澳門、天津、臺北、瀋陽、維也納、東京、濟南、煙颱、上海、成都。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 28, "input": "在截止日期後提交作業稱為遲交作課。", "gold": "corrupted", "pred": "corrupted"}
+{"task": "LD", "model": "tfidf_lr", "index": 28, "input": "在截止日期後提交作業稱為遲交作課。", "gold": "corrupted", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 29, "input": "香港本土派組織劉勇威（），人稱「阿威」，埔向晴天成員，是香港大埔區議會前副主席。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 30, "input": "有兒子。", "gold": "corrupted", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 31, "input": "一年嚟，回復單身的阿寶同風流快活嘅阿強繼續保持友好關係，一日爛滾愛玩的阿強竟然帶阿寶參加換妻派對，保守嘅阿寶本來想走，但遭阿強阿威迫利誘而無奈參與。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 32, "input": "從2007年6月開始，一汽巴士重新開通瞭廣州第一批村村通的小巴。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 33, "input": "通常在羅馬字母入面，一個字母對應住一個音素。", "gold": "corrupted", "pred": "Cantonese"}
+{"task": "LD", "model": "tfidf_lr", "index": 32, "input": "從2007年6月開始，一汽巴士重新開通瞭廣州第一批村村通的小巴。", "gold": "corrupted", "pred": "Mandarin"}
+{"task": "LD", "model": "tfidf_lr", "index": 33, "input": "通常在羅馬字母入面，一個字母對應住一個音素。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 34, "input": "魚腥含笑是木蘭科含笑屬嘅一種常綠灌木或小喬木。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 35, "input": "1968年：越戰—美國陸軍喺越南美萊屠殺村民，呢單嘢嗌「美萊屠殺」。", "gold": "Cantonese", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 36, "input": "他起初是做編輯，後尾做到總編輯。", "gold": "corrupted", "pred": "corrupted"}
@@ -139,21 +139,21 @@
 {"task": "LD", "model": "tfidf_lr", "index": 38, "input": "同 都係有限序列，序列長度都係。", "gold": "Cantonese", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 39, "input": "它是美林基業集團在天河區繼美林海岸花園之後，第二個開發的樓盤，有現代南亞風情嘅稱呼。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 40, "input": "當中14個國傢同地區的代錶團首次參加，包括：圭亞那、緬甸、斯裏蘭卡、伊朗、伊拉剋、牙買加、韓國、黎巴嫩、巴基斯坦、波多黎各、新加坡、敘利亞、特里尼達和多巴哥以及委內瑞拉。", "gold": "corrupted", "pred": "Mandarin"}
-{"task": "LD", "model": "tfidf_lr", "index": 41, "input": "之後曾在浸會醫院的老人中心擔任節目策劃。", "gold": "Mandarin", "pred": "corrupted"}
+{"task": "LD", "model": "tfidf_lr", "index": 41, "input": "之後曾在浸會醫院的老人中心擔任節目策劃。", "gold": "Mandarin", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 42, "input": "檳威海峽之間有兩座跨海大橋，分別係檳威大橋同埋檳威第二大橋同馬來西亞半島銜接，並提供渡輪服務來往兩地。", "gold": "Cantonese", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 43, "input": "防火牆或一些網關、路由器具有網絡代理的功能。", "gold": "Mandarin", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 44, "input": "梁思成，林徽因，莫宗江 1954 「中國建築發展的歷史階段」 《建築學報》第二期12月。", "gold": "Cantonese", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 45, "input": "而校址最初時在荔灣區的白鶴洞那頭，在1990年就搬到現在白雲區的夏茅村裏麵。", "gold": "Mandarin", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 46, "input": "2015年單曲《女兒情》係1986版電視劇《西遊記》第16集《趣經女兒國》嘅插曲。", "gold": "Cantonese", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 47, "input": "亦正因為此，佢是日本最早嘅通商港口，神戶以開放同國際化嘅氣圍而聞名。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 48, "input": "1914年：巴拿馬運河行通船。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 49, "input": "喺馬來西亞印度坦米爾裔家庭，阿榜糕是最常食用嘅早餐菜肴。", "gold": "corrupted", "pred": "corrupted"}
+{"task": "LD", "model": "tfidf_lr", "index": 48, "input": "1914年：巴拿馬運河行通船。", "gold": "corrupted", "pred": "Cantonese"}
+{"task": "LD", "model": "tfidf_lr", "index": 49, "input": "喺馬來西亞印度坦米爾裔家庭，阿榜糕是最常食用嘅早餐菜肴。", "gold": "corrupted", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 50, "input": "並可以唔經議會通過直接頒布法令。", "gold": "Cantonese", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 51, "input": "梅樹坑有四座橋跨越林村河。", "gold": "Mandarin", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 52, "input": "斑馬視力很好。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 53, "input": "最外層的氫氣大氣層在不同的深度有不同顔色的雲層，這些雲可能是由水和氨構成的。", "gold": "Mandarin", "pred": "Mandarin"}
-{"task": "LD", "model": "tfidf_lr", "index": 54, "input": "成因包括腸胃炎、食物中毒、暈浪、吃太多東西、飲太多酒等。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 55, "input": "與頻域方法不同，狀態空間法不會局限於隻有綫性分量、零初始條件的係統。", "gold": "Mandarin", "pred": "corrupted"}
+{"task": "LD", "model": "tfidf_lr", "index": 54, "input": "成因包括腸胃炎、食物中毒、暈浪、吃太多東西、飲太多酒等。", "gold": "corrupted", "pred": "Mandarin"}
+{"task": "LD", "model": "tfidf_lr", "index": 55, "input": "與頻域方法不同，狀態空間法不會局限於隻有綫性分量、零初始條件的係統。", "gold": "Mandarin", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 56, "input": "董建華1937年7月7日（同日發生蘆溝橋事變）喺上海齣生，1947年成家人搬咗去香港落腳。", "gold": "corrupted", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 57, "input": "大嶼山田代政係日本電視演員。", "gold": "Cantonese", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 58, "input": "也就是說，簡化來說，懲罰可以想像成會降低一隻動物做某種行為的動力」的後果。", "gold": "corrupted", "pred": "Mandarin"}
@@ -192,7 +192,7 @@
 {"task": "LD", "model": "tfidf_lr", "index": 91, "input": "最外層的氫氣大氣層響不同的深度有不同顏色的雲層，這些雲可能是由水和氨構成嘅。", "gold": "corrupted", "pred": "Mandarin"}
 {"task": "LD", "model": "tfidf_lr", "index": 92, "input": "人可以是普通人又或者法人。", "gold": "corrupted", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 93, "input": "它的上卦是乾卦，代表天，即；下卦係坤卦，代錶地，即。", "gold": "corrupted", "pred": "corrupted"}
-{"task": "LD", "model": "tfidf_lr", "index": 94, "input": "無綫新聞喺呢次選舉得到民建聯嘅幫助。", "gold": "corrupted", "pred": "corrupted"}
+{"task": "LD", "model": "tfidf_lr", "index": 94, "input": "無綫新聞喺呢次選舉得到民建聯嘅幫助。", "gold": "corrupted", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 95, "input": "如果八卦鏡上，加上刀劍三叉則更厲害，俗稱「三叉八卦」，可以引發對麵鄰居不和，傢宅不寜，化吉為凶。", "gold": "Mandarin", "pred": "corrupted"}
 {"task": "LD", "model": "tfidf_lr", "index": 96, "input": "第一個係核，佢係嘅子空間；第二個是映像，佢是嘅子空間；第三個係餘核，係佢嘅商空間。", "gold": "corrupted", "pred": "Cantonese"}
 {"task": "LD", "model": "tfidf_lr", "index": 97, "input": "海洋學新傳媒私人有限公司，簡稱新傳媒，係新加坡嘅媒體集團，由政府部門演變成為名義上嘅商業機構，唯一股東係由新加坡政府操控嘅淡馬錫控股。", "gold": "Cantonese", "pred": "corrupted"}
@@ -346,7 +346,7 @@
 {"task": "sentiment", "model": "tfidf_lr", "index": 45, "input": "輕輕kan kan嘅午餐 以前佢哋下晝下午茶時段 有啲 輕型嘅下午茶餐 有細細碗嘅魚生飯 或者烏冬配幾嚿壽司之類， 雖然要收加一都算係平。 唔知係咪生意難做 最近佢哋連平日 食晏時間 都有埋呢啲輕盈餐。 佢有個 凍烏冬 23蚊 跟住 另外湯同埋 海帶 白飯之類自己任添。 咁嘅價錢我唔會太多要求 況且啲嘢都唔差， 地方乾淨企理 可以接受。 飲品係另外加錢 不過普普通通。 坐喺度慢慢食店員又唔會趕我走 用嚟消磨時間或者等人呢度真係唔錯。 如果對日本嘢好多挑剔嘅呢度當然唔會啱， 但都係嗰句 咁嘅價錢 我覺得係絕對可以接受啦。 ", "gold": "smile", "pred": "ok"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 46, "input": "純粹醫肚 第一次黎塔門，山長水遠，搭車又搭船，坐到個人都餓了，於是一行五人決定趁烈日當空之際食個午餐😗   落船行五分鐘有三間相距好近既食肆，無咩preference 之下就簡左呢間了，貪佢唔使排好耐隊 都預左唔會平架喇 似乎係馳名必叫既一個飯，可惜唔多食得出海膽味，普普通通啦 蝦醬味唔多覺，而魷魚都幾彈牙 相當惹味既一道菜，搏哂老命咁清哂成碟haha 無咩亮點😗 標榜唔落冰既奶茶，又真係幾濃幾滑既。不過唔好飲太多，費事口渴   補充完能量後，眼見出面太陽無咁光猛，我地決定開始今日既塔門之旅了~", "gold": "ok", "pred": "ok"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 47, "input": "古式古鄕吸引飲左杯涼茶 落錯車，吳知行左去邊，唸住行反出地鐵站，點知行行下見到座好似古物既建築，望返轉頭，原來係海天堂，真係完全吳知呢個位置有間涼茶舖，以前聽電視廣告就聽得多，但就吳記得有無係其他分店幫襯過🤔🤔 見到甘特別，就入去飲左杯涼茶😊 ———————————————————— 涼茶都幾好飲，飲到係無➕糖，味道都甘甜，我最怕飲到D涼茶鋪➕糖既糖水涼茶，呢間飲落味道都ok✌️ ——————————————————— 以為剩係門口靚，原來入面仲靚，可惜無影，因為入面無乜人，好似吳係幾好意思周圍影😂，下次坐低試下D🐢苓糕，可以坐耐D影埋入面D裝修先，如果吳知係涼茶鋪，仲以為入左去參觀古蹟文物😂 ", "gold": "ok", "pred": "ok"}
-{"task": "sentiment", "model": "tfidf_lr", "index": 48, "input": "香溢既椰香熱糯米 又到星期五，happy firday🎉辛苦左成個星期，食完晚飯，出去食糖水獎勵一下自己都唔過份者🤤 樂富糖水鋪唔多，有近地鐵站得一個咁大把😞，好彩時間唔算太夜，比我們搵到位，我叫左個熱「椰香黑糯米甜甜」🎊😍  熱既椰汁香港四溢，中意食椰汁既我非常like😋唔會太甜，👍🏻, 加上黑糯米夠晒有營養同健康，煙煙近近，又有飽肚感覺，食完仲好好訓💤💤，不過熱糯米就好易好快索左啲汁，好像變左糊仔咁，唔中意食咁杰既我就有哦失望  ", "gold": "ok", "pred": "ok"}
+{"task": "sentiment", "model": "tfidf_lr", "index": 48, "input": "香溢既椰香熱糯米 又到星期五，happy firday🎉辛苦左成個星期，食完晚飯，出去食糖水獎勵一下自己都唔過份者🤤 樂富糖水鋪唔多，有近地鐵站得一個咁大把😞，好彩時間唔算太夜，比我們搵到位，我叫左個熱「椰香黑糯米甜甜」🎊😍  熱既椰汁香港四溢，中意食椰汁既我非常like😋唔會太甜，👍🏻, 加上黑糯米夠晒有營養同健康，煙煙近近，又有飽肚感覺，食完仲好好訓💤💤，不過熱糯米就好易好快索左啲汁，好像變左糊仔咁，唔中意食咁杰既我就有哦失望  ", "gold": "ok", "pred": "smile"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 49, "input": "不值一試的中午半自助餐午餐(非常失望) 屯門新開了一段時間的 工夏式酒 店 咁岩見到酒 店7月.8月做中午半自助餐 生日月可以半價  我兩個仔仔都係8月生日...咁咪諗住去試下(本來好有期望)  一上到去侍應的服務都OK 環境都幾舒服 行出去睇下有咩食先^^ 一行出去見到第一時間反應心諗(唔係呀咁小野食) 兩分鐘行晒 都拿D食下先丫 燒肉同义燒都係一般冇野食都要食 燒賣就好小小食得最多...不過估計都係大陸工場交貨 沙律巴D菜最正常 凍食有蝦同青口.....蝦都係一般青口唔敢食 熟食方面  有麵 有炒飯 有菜有pizza.....麵好辣....其他熟食見到都唔想食pizza勉強可以不過一出好多時以經比人羅晒(可能因為其他野唔好食) .......只好寄望在主菜了(所喂半自助午餐...其實每人只係可以點一份主菜....豬牛羊扒果Ｄ...冬陰公湯米粉都係主菜一種 其柽...把鬼)....... 咁好拉出面冇既然冇野好食介就叫主菜(主菜都係得五款選擇)豬柳.牛柳.羊架.冬陰公.....仲有一樣唔記得......我地5個人諗往點兩份牛柳......侍應話冇晒 (12點開始 12:15分去到......12:30點主菜 ......唔好意思呀 ..牛柳已經冇晒)呢間咩餐廳架 .......咁之後點了兩份羊架兩份豬柳一碗冬陰公湯米粉 主菜到.....羊架還可以食得下......豬柳都是普通街市豬扒可以唔洗試......至於碗冬陰功直頭唔洗叫....因為碗野根本酸到食唔到...睇見隔離枱成碗冇食過 都唔知點解呢D野都叫做主野......永遠唔會再有下次....... 成人$258加一  小童$208加一  5個人正價要千一.二....比得千幾蚊唔洗食呢Ｄ下價野....去市中心(緣聚)放题好好多 .........仲知呢間(貝爾特)本人真係強烈建議你地唔洗黎試 ", "gold": "cry", "pred": "cry"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 50, "input": "冇咁油可能好味啲 強記美食座落係灣仔駱克道，係一間米芝連推介既小食老店。見到個裝潢一睇就知歷史悠久，鋪頭裡面有2-3張細枱，亦都擺左2張枱出後巷。一睇原來間店始於1950年，原來已經接近70年歷史！   豉油王炒麵，感覺同一般粥粉麵鋪嘅炒麵冇乜分別。香煎蝦米腸粉，煎得唔錯都香口，但係麻醬少咗d同埋好油。兩碟既份量都比較細，唔知係唔係因為老店嘅關係，keep住左煮嘢食嘅方法都係落得多油d😅   熱馬來甜品喳咋，好味，加左d cream係面好滑，紅豆起到沙👍🏻 ", "gold": "ok", "pred": "ok"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 51, "input": "難食到不得了 好耐冇食過咁難食o既海鮮餐, 成餐飯都錯晒~認唔住要寫我第一份食評去比劣評呀! 上星期3同老公開開心心去慶祝生日, 諗住近近地係附近食, 就食民豐, 之前佢話食過一次都可以接受。點知今次出左事, 食完一次發誓以後唔會再食佢。 餐飯叫左: 兩隻薑蔥蒸鮑魚, 一隻肉蟹用佢所謂o既秘製梅子汁蒸, 兩隻賴尿蝦椒鹽(哩個最錯, 請睇內文), 一個沙嗲粉絲牛肉煲, 一碟蠔油炒菜心 等左半個鐘終於有野食, 不過不失, 鮮味一般 又等左差唔多半個鐘都冇野食, 老公開始有火, 叫返落order個四眼哥哥問下, 於終等多5分鐘即上 , 因為好似見d煲仔做到幾香, 諗住試試佢, 點知第一啖食落去, 冇味o既 叫個呀姐黎, 佢話咁我幫你 啦。加完味出返黎先似返d樣, 右返d辣同豉油。 : 之後到隻肉蟹。本來想食黃油蟹, 不過前一日老公d同事外賣左鯉魚門o既黃油蟹同龍蝦, 前一晚我又同佢食左teppanyaki, 已經好滯, 如果梅子汁蒸就唔需要咁靚o既蟹, 食隻肉蟹應該岩岩好。 8月份d蟹應該都靚仔先岩, 竟然佢搵到咁差o既 我地老公都係蟹精, 竟然都食唔晒d蟹 蠔油炒菜心, , 冇comment 到最錯o既係賴尿蝦, 一開頭想食有糕, 點知佢搞左一輪又話今日個d無糕, ok小事。之後佢最後上賴尿蝦, 一上菜見到整錯左, 椒鹽變左蒸, 個四眼哥哥都醒, 即刻話煮房做錯左, 攞返入去再黎過。 收晒水冇晒肉點食呀, call個四眼仔黎鬧鬼佢, 於是入去重新整過‧最後出黎都算ok, 但佢個椒鹽我個人口味唔係咁鍾意, 覺得天虹做得好食d。 埋單, 加左兩個靚仔同1隻忌廉, 要成HKD991.....一D都唔值, 難食到咁樣, 真係\" \" ", "gold": "cry", "pred": "cry"}
@@ -390,7 +390,7 @@
 {"task": "sentiment", "model": "tfidf_lr", "index": 89, "input": "【九龍灣】新泰滋味 呢晚去搵朋友食飯，定期食餐飯傾下計。  係德福內餐廳，裝修都靚，唔止係普通東南亞食店，似西式cafe。 座位都係梳化。  有限時，個半鐘，不過無人等就可以繼續坐。 睇完餐牌，好快已經知自己想食咩。 新加坡喇沙，78元，有蝦、豆卜，芽菜等材料，唔辣，小小味，但未係好夠。份量適中，如果男仕未必夠。 友人需要補鐵，叫左半打串燒全牛，88元。味道可以，上菜時已經凍咗啲，唔算抵。  叫埋炒芥蘭，78元，正常，還好。  係德福無得揀，呢間坐得好，嘢食又未至於太差。", "gold": "ok", "pred": "ok"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 90, "input": "款式多，味道尚可 星期五晚，度度都多人，搵間有車位泊嘅餐廳，去左油塘大本營，揀左呢間十勝牛 八點去到不用等位，一行兩人被安排一邊四人檯，檯面太細，完全唔夠位擺食物 軟殼蟹手卷，三十蚊兩隻係抵，但味道一般，蟹身唔脆亦唔夠味道 日式豆腐 豆腐夠滑 一客有三舊大大舊，味道不錯，唯一唔好係汁太多，成舊豆腐好似浸湯咁，破壞晒 豬軟骨烏冬，豬軟骨忟得幾入味，但只得三小舊是太少，反而烏冬份量夠晒多，可怕烏冬完全唔彈牙，林滋滋，湯底就ok 燒原隻魷魚，味道是可以，略嫌烤得唔夠香 烤腸，肉質彈牙但味道很淡，唔值得叫 石榴汁，味道好，但係完全唔凍， 又係破壞晒 埋單$231；味道中等水平 ，算合理價錢，貪佢選擇多嘅可一試", "gold": "ok", "pred": "ok"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 91, "input": "試一次無回頭 黃大仙龍翔中心開左間新嘅台灣菜。趁午飯時間就過黎試下新野先。 午餐set 有L1~L8,  價錢大概都 45~48左右！ 要去收銀處排隊下單，再自行選位等候。 買左之後，會有個機俾你，當你嘅午餐準備好就會閃燈同震。 呢個位置就係取餐嘅地方，舖面大概容納20個座位左右！ 同事叫嘅L8 煎豬排併腐皮花枝卷起司撈即食麵 $48 豬排細得驚人，同事表示撈完整個面變得很乾。 其實望落勁似7仔小食亭嘅食物出品! L1 台式肉燥雞扒飯 $48 肉燥份量只散亂舖在飯面上，雞扒size 大概是大xx快餐店果種，咬落都幾厚粉。 L2 台式肉燥雞腿飯 $48 終於呢個飯外貌正常，老水雞腿x1，半份肉燥。  所有飯餐 可選波霸奶茶或冬瓜茶 飲品沖調得都幾甜，怕甜嘅記得叫少甜!", "gold": "cry", "pred": "ok"}
-{"task": "sentiment", "model": "tfidf_lr", "index": 92, "input": "不過不失的一餐 太和終於出現了第一間SUSHI店...很期待呢! 昨日去了試味!~感覺一般..... 不過最令我回味既就係[海瞻]壽司,好鮮甜,好新鮮..... 海瞻真係唔係間間都咁好食,試過有D又腥又臭!!! 另外赤海蝦壽司都唔錯~鮮甜可口!..... 海膽魷魚都幾好味.... 赤貝壽司 & 北寄貝 & 帶子 & 玉子- OK,可以.... 至於象拔蚌壽司 - 真係好唔掂....又腥又硬,唔新鮮~ 三文魚、吞拿魚壽司冇食....因為本人一向都冇興趣....不過媽媽叫左黎食! 應該會有下次的~因為近屋企...方便想食sushi既時侯....唔洗去到大中....咁遠!!! ", "gold": "ok", "pred": "cry"}
+{"task": "sentiment", "model": "tfidf_lr", "index": 92, "input": "不過不失的一餐 太和終於出現了第一間SUSHI店...很期待呢! 昨日去了試味!~感覺一般..... 不過最令我回味既就係[海瞻]壽司,好鮮甜,好新鮮..... 海瞻真係唔係間間都咁好食,試過有D又腥又臭!!! 另外赤海蝦壽司都唔錯~鮮甜可口!..... 海膽魷魚都幾好味.... 赤貝壽司 & 北寄貝 & 帶子 & 玉子- OK,可以.... 至於象拔蚌壽司 - 真係好唔掂....又腥又硬,唔新鮮~ 三文魚、吞拿魚壽司冇食....因為本人一向都冇興趣....不過媽媽叫左黎食! 應該會有下次的~因為近屋企...方便想食sushi既時侯....唔洗去到大中....咁遠!!! ", "gold": "ok", "pred": "ok"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 93, "input": "勁鹹！ 今晚試了這間海記，寫黎都係叫自己記得唔好再幫襯喇～～～ 叫了碗艇仔粥，超鹹，無下次！ ", "gold": "cry", "pred": "cry"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 94, "input": "糧尾之選，平價don飯😎 ♥️糧尾恩物♥️  性價比極高既定食8, $28起就食飽飽✌🏻 出左新Menu, 好多野食❗️ 味道唔可以話超好食，但食物新鮮，份量夠飽，值得推介  👉🏽海景丼（$48+$15轉套餐有味噌湯，茶碗蒸同野飲） 8 種魚生都新鮮，飯量都多。 👉🏽鯖魚飯（$38) 天阿！呢個價錢，魚都係大大條，冇得彈。 👉🏽雞扒丼（下午茶$28) 雞扒嫩滑，燒汁甜甜地，好送飯。 👉🏽炸蝦天婦羅（$28) 手掌咁大條蝦，南瓜，秋葵，冬菇同蟹柳，吃落唔會油膩而且味道鮮香👍🏾", "gold": "smile", "pred": "smile"}
 {"task": "sentiment", "model": "tfidf_lr", "index": 95, "input": "現成野煮埋一碟 入到去人都未坐低，就隊張牌俾你叫你細聲講嘢，真係第一次入餐廳原來係唔可以講嘢，但係佢彈琴就得？強迫別人聽音樂，食物質素真係麻麻，全部都係買返嚟嘅現成野，然後煮買一碟比你食，又等得耐又唔俾傾討，講返食物質素先,唔明點解係凍肉舖買返嚟嘅素食品，煮埋果汁就當係午餐咁煮比客人食,對於呢一種素食我真係唔覺得有幾健康全部都係加工食物，唔見得有幾有誠意幾有味道，可能我真係唔識欣賞呢啲餐廳嘅素食啦⋯⋯其實如果唔鍾意講嘢嘅人都可以去試吓嘅，大如果一大班朋友諗住去傾吓計就無謂啦。 ", "gold": "cry", "pred": "cry"}

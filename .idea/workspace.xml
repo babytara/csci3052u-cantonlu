@@ -4,17 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="">
+    <list default="true" id="ec76a4a5-b967-4276-b204-58761f843354" name="Changes" comment="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1).">
+      <change afterPath="$PROJECT_DIR$/src/check_preds.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/predictions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/baseline_preds.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/results/baseline_preds.jsonl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/baseline_val.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/baseline_val.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/baselines.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/pre-milestone5-results/baselines.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/runs.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/results/pre-milestone5-results/runs.jsonl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/baseline_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/baseline_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ld_sentiment_baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ld_sentiment_baseline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/naive_nli_baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/naive_nli_baseline.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -30,12 +43,12 @@
     &quot;assignee&quot;: &quot;Catsomiac&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/babytara/csci3052u-cantonlu.git",
-    "accountId": "fedfc447-8d29-4caf-ba51-0f30a33f3692"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/babytara/csci3052u-cantonlu.git&quot;,
+    &quot;accountId&quot;: &quot;fedfc447-8d29-4caf-ba51-0f30a33f3692&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -49,27 +62,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "gabriel2",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gabriel2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Pedra\Downloads\Computer Science\canto-nlu\csci3052u-cantonlu\src" />
+      <recent name="C:\Users\Pedra\Downloads\Computer Science\canto-nlu\csci3052u-cantonlu\results\pre-milestone5-results" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -85,11 +104,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1792470539869</updated>
-      <workItem from="1795115719437" duration="1733000" />
+      <workItem from="1795115719437" duration="2644000" />
+      <workItem from="1795134357290" duration="8855000" />
     </task>
+    <task id="LOCAL-00001" summary="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1).">
+      <option name="closed" value="true" />
+      <created>1795117498129</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1795117498129</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1)." />
+    <option name="LAST_COMMIT_MESSAGE" value="First step: Rescore the baselines on the same 100 validation examples the LLM used (LD (2,5) C=10, sentiment (2,5) C=10, NLI (1,3) C=1)." />
   </component>
 </project>
