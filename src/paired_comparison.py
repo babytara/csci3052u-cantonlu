@@ -1,7 +1,10 @@
 # Uncertainty and Paired Comparison of Models
 
 # Run from the repository root:
-#     python -m src.paired_comparison
+#   For validation:
+#       python -m src.paired_comparison
+#   For test:
+#       python -m src.paired_comparison --baseline results/baseline_test_preds.jsonl --llm results/llm_test_preds.jsonl --split test
  
 # This comparison uses predictions for each example from the baseline and llm json files with task, gold, pred, and model
 # It then computes the uncertainty with a 95% bootstrap interval for each model and saves it into uncertainty.csv
@@ -22,6 +25,8 @@ resultsDir = rootDir / "results"
 
 # number of bootstrap samples
 bootSamples = 10000
+# sets chunk size to resample 500 chunks at a time to avoid memory errors 
+chunks = 500
 
 SEED = 42
 
@@ -34,6 +39,13 @@ def load(path, default_model = None):
     # if model name wasn't missing, then assign it
     if "model" not in df:
         df["model"] = default_model
+
+    # gets LD labels from files as some store it as numbers and some store it as names
+    ld_names = {0: "Cantonese", 1: "Mandarin", 2: "corrupted"}
+    ld_task = df["task"] == "LD"
+    for col in ("gold", "pred"):
+        df[col] = df[col].astype(object)
+        df.loc[ld_task, col] = df.loc[ld_task, col].map(lambda x: ld_names.get(x, x))
 
     # returns the task, the model that predicted, the correct answer. and the model's predicted answer 
     return df[["task", "model", "gold", "pred"]]
@@ -102,10 +114,17 @@ def main():
         # changes model predictions to integer arrays
         pred = {m: np.array([code.get(x, -1) for x in g["pred"]]) for m, g in models.items()}
 
-        # gets random bootstrap samples and paired differences
-        idx = rng.integers(0, n, (bootSamples, n))  
-        boot_f1 = {m: macro_f1(gold[idx], p[idx], k) for m, p in pred.items()} # gets macroF1 for each bootstrap sample
-        boot_acc = {m: (gold[idx] == p[idx]).mean(1) for m, p in pred.items()} # gets accuracy for each bootstrap sample
+        # gets random bootstrap samples and paired differences, using the same resample 500 chunks at a time to avoid memory errors 
+        boot_f1 = {m: [] for m in pred}
+        boot_acc = {m: [] for m in pred}
+        for start in range(0, bootSamples, chunks):
+            idx = rng.integers(0, n, (min(chunks, bootSamples - start), n))
+            g = gold[idx]
+            for m, p in pred.items():
+                boot_f1[m].append(macro_f1(g, p[idx], k)) # gets macro-F1 for each bootstrap sample
+                boot_acc[m].append((g == p[idx]).mean(1)) # gets accuracy for each bootstrap sample
+        boot_f1 = {m: np.concatenate(v) for m, v in boot_f1.items()}
+        boot_acc = {m: np.concatenate(v) for m, v in boot_acc.items()}
         
         # gets the performance of each model
         for m, p in pred.items():
@@ -130,8 +149,9 @@ def main():
                 )
             )
 
+        
         # compares the models in pairs majority, tfidf, LLM
-        for a, b in combinations(sorted(pred, key=lambda m: ("majority" != m, m == LLM, m)), 2):
+        for a, b in combinations(sorted(pred, key=lambda m: (not m.startswith("majority"), m == LLM, m)), 2):
             # calculates the difference in macrof1 between models
             modelF1Difference = float(macro_f1(gold, pred[b], k) - macro_f1(gold, pred[a], k))
             # calculates the bootstrap confidence interval for the difference
@@ -175,9 +195,11 @@ def main():
             )
 
     # outputs results
-    out = Path(args.out_dir); out.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(unc_rows).to_csv(out / "uncertainty.csv", index=False, lineterminator="\n")
-    pd.DataFrame(pair_rows).to_csv(out / "paired_comparison.csv", index=False, lineterminator="\n")
+    out = Path(args.out_dir)
+    out.mkdir(parents=True, exist_ok=True)
+    val_or_test = "" if args.split == "val_subset" else f"_{args.split}"
+    pd.DataFrame(unc_rows).to_csv(out / f"uncertainty{val_or_test}.csv", index=False, lineterminator="\n")
+    pd.DataFrame(pair_rows).to_csv(out / f"paired_comparison{val_or_test}.csv", index=False, lineterminator="\n")
     print(pd.DataFrame(unc_rows).to_string(index=False))
     print()
     print(pd.DataFrame(pair_rows).to_string(index=False))

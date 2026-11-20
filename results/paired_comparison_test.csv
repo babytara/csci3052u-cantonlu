@@ -1,0 +1,10 @@
+task,split,n,model_a,model_b,delta_macro_f1,delta_ci_low,delta_ci_high,delta_accuracy,a_only_correct,b_only_correct,mcnemar_p,verdict,accuracy_verdict
+LD,test,2341,majority_class,char_tfidf_logistic_regression,0.3642,0.3391,0.3877,0.0333,379,457,0.0077,real,real
+LD,test,2341,majority_class,claude-haiku-4-5,0.2138,0.1906,0.2363,-0.123,719,431,0.0,real,real
+LD,test,2341,char_tfidf_logistic_regression,claude-haiku-4-5,-0.1505,-0.1799,-0.1204,-0.1563,756,390,0.0,real,real
+sentiment,test,999,majority_class,char_tfidf_logistic_regression,0.5559,0.5277,0.5833,0.3954,60,455,0.0,real,real
+sentiment,test,999,majority_class,claude-haiku-4-5,0.5106,0.4832,0.5383,0.3984,9,407,0.0,real,real
+sentiment,test,999,char_tfidf_logistic_regression,claude-haiku-4-5,-0.0453,-0.0773,-0.0128,0.003,114,117,0.8953,real,inconclusive
+NLI,test,13202,majority_class,char_tfidf_logistic_regression,0.3737,0.3653,0.3821,0.2071,1824,4558,0.0,real,real
+NLI,test,13202,majority_class,claude-haiku-4-5,0.5405,0.5328,0.5481,0.3752,1561,6515,0.0,real,real
+NLI,test,13202,char_tfidf_logistic_regression,claude-haiku-4-5,0.1668,0.1576,0.1762,0.1682,1103,3323,0.0,real,real
