@@ -97,7 +97,7 @@ python -m src.naive_nli_baseline
 python -m src.ld_sentiment_baseline
 ```
 
-This script (`naive_nli_baseline`) skips rows already recorded in `results/baselines.csv`. The LD/sentiment script appends every time it runs. To regenerate everything from scratch, delete `results/baselines.csv` and `results/runs.jsonl` first, then run both scripts.
+This script (`naive_nli_baseline`) skips rows already recorded in `results/baselines.csv`. The LD/sentiment script skips what's already logged when it runs. To regenerate everything from scratch, delete `results/baselines.csv` and `results/runs.jsonl` first, then run both scripts.
 
 The **naive benchmark** predicts the most common training label for each test example in LD, sentiment, and NLI. Character n-gram TF-IDF features were used to build a logistic regression for NLI. For the NLI TF-IDF baseline, each example has a premise and a hypothesis, which receive a separate vectorizer that fits only on the training split, and their feature matrices are combined with logistic regression before classification. Given the large training set, the NLI classifier uses a stratified random sample of 100,000 pairs for efficient tuning, while validation and test sets remain the same. The best settings, as well as the character n-gram ranges, and C values were tested, where the best one was then selected using validation macro-F1. The model selected using validation macro-F1 uses character n-grams (1,3) and C=1.0, achieving a validation macro-F1 of approximately 0.6945. Its test accuracy was 0.7071 and test macro-F1 was 0.7070.
 
@@ -106,9 +106,9 @@ The **naive benchmark** predicts the most common training label for each test ex
 | Task | Model | n | Accuracy | Macro-F1 |
 |---|---|---|---|---|
 | LD | majority class | 2,341 | 0.661 | 0.265 |
-| LD | char TF-IDF + LR | 2,341 | 0.710 | 0.619 |
+| LD | char TF-IDF + LR | 2,341 | 0.694 | 0.630 |
 | Sentiment | majority class | 999 | 0.333 | 0.167 |
-| Sentiment | char TF-IDF + LR | 999 | 0.746 | 0.741 |
+| Sentiment | char TF-IDF + LR | 999 | 0.729 | 0.723 |
 | NLI | majority class | 13,202 | 0.500 | 0.333 |
 | NLI | char TF-IDF + LR | 13,202 | 0.707 | 0.707 |
 
@@ -124,7 +124,7 @@ Zero-shot classification with Claude Haiku 4.5 (`claude-haiku-4-5-20251001`, Ant
 python -m src.llm_eval
 ```
 
-Each task uses a seeded - 42, stratified sample of 100 examples from the val split. The test set is not used. The prompts are in `src/llm_eval.py` and the temperature was left for the provider's default. Every reply from the API is stored in `results/llm_cache.jsonl`, so the script reproduces `results/llm_val.csv` without calling the API. Only brand new prompts will need `ANTHROPIC_API_KEY` set. The predictions for each example are in `results/llm_preds.jsonl`.
+Each task uses a seeded - 42, stratified sample of 100 examples from the val split. `llm_test.csv` has the full test-set results. The prompts are in `src/llm_eval.py` and the temperature was left for the provider's default. Every reply from the API is stored in `results/llm_cache.jsonl`, so the script reproduces `results/llm_val.csv` without calling the API. Only brand new prompts will need `ANTHROPIC_API_KEY` set. The predictions for each example are in `results/llm_preds.jsonl`.
 
 | Task | n | Accuracy | Macro-F1 |
 |---|---|---|---|
@@ -192,6 +192,96 @@ entailment: Precision: 0.976, Recall: 0.800, Support: 50
 not_entailment: Precision: 0.831, Recall: 0.980, Support: 50
 UNPARSED: Precision: 0.000, Recall: 0.000, Support: 0
 ```
+
+**Milestone 5**
+## Test Set LLM run
+From the repository root, run:
+```bash
+python -m src.llm_test test            # LD, sentiment, and NLI test sets
+python -m src.llm_test test LD         # For one task at a time
+python -m src.llm_test ablation        # LD prompt with and without the "corrupted" definition on 100 examples from the validation set
+```
+The table in `results/llm_test.csv` will display the results
+| task      |    n   | accuracy             | macro_f1             |
+|-----------|--------|----------------------|----------------------|
+| LD        | 2,341  | 0.538                | 0.479                |
+| LD        | 999    | 0.732                | 0.677                |
+| LD        | 13,202 | 0.875                | 0.874                |
+
+## Paired Comparison
+From the root:
+For the validation set, run: `python -m src.paired_comparison` 
+For the test set, run: `python -m src.paired_comparison --baseline results/baseline_test_preds.jsonl --llm results/llm_test_preds.jsonl --split test` 
+Intervals are 95% bootstrap intervals from 10,000 resamples (seed 42). Each model uses the same resamples to ensure that the differences are paired.
+The four output files `paired_comparison.csv`, `uncertainty.csv`, `paired_comparison_test.csv`, and `uncertainty_test.csv` display a comparison of each models
+performance. It also are by evaluating models against each other using confidence intervals to see if their macro-F1 and accuracy scores 
+the are significant enough to distinguish the models based on their performance, and determine if the metrics accurately display which models are better or worse.
+
+| Task | Model | n | Accuracy [95% CI] | Macro-F1 [95% CI] |
+|---|---|---|---|---|
+| LD | majority class | 2,341 | 0.6608 [0.6416, 0.6805] | 0.2653 [0.2606, 0.2700] |
+| LD | char TF-IDF + LR | 2,341 | 0.6941 [0.6754, 0.7129] | 0.6295 [0.6059, 0.6513] |
+| LD | Claude Haiku 4.5 | 2,341 | 0.5378 [0.5182, 0.5579] | 0.4790 [0.4577, 0.4998] |
+| Sentiment | majority class | 999 | 0.3333 [0.3033, 0.3624] | 0.1667 [0.1551, 0.1773] |
+| Sentiment | char TF-IDF + LR | 999 | 0.7287 [0.7007, 0.7558] | 0.7226 [0.6950, 0.7492] |
+| Sentiment | Claude Haiku 4.5 | 999 | 0.7317 [0.7037, 0.7588] | 0.6773 [0.6495, 0.7048] |
+| NLI | majority class | 13,202 | 0.5000 [0.4914, 0.5088] | 0.3333 [0.3295, 0.3372] |
+| NLI | char TF-IDF + LR | 13,202 | 0.7071 [0.6996, 0.7146] | 0.7070 [0.6994, 0.7145] |
+| NLI | Claude Haiku 4.5 | 13,202 | 0.8752 [0.8696, 0.8809] | 0.8738 [0.8681, 0.8795] |
+
+**Example of paired comparison for TF-IDF Logistic Regression against Claude Haiku 4.5**
+| Task | n | Δ macro-F1 [95% CI] | Macro-F1 verdict | McNemar p (accuracy) | Accuracy verdict |
+|---|---|---|---|---|---|
+| LD | 2,341 | -0.1505 [-0.1799, -0.1204] | real | 0.0 | real |
+| Sentiment | 999 | -0.0453 [-0.0773, -0.0128] | real | 0.8953 | inconclusive |
+| NLI | 13,202 | +0.1668 [0.1576, 0.1762] | real | 0.0 | real |
+
+"real" means the interval doesn't include 0 for macro-F1, or the McNemar p-value is less than 0.05 for accuracy. "inconclusive" means
+that there isn't sufficient evidence to distinguish the models.
+
+## Test Confustion Matrices
+`src/confustion_test.py` creates a confusion matrix in `results/confusion_matrix/`
+
+##Robustness and Ablation
+**Ablation:**
+```bash
+python scripts/ablation_check.py
+python -m src.checks
+```
+
+The ablation removes the definition of "corrupted" from the LD prompt and scores both prompts on the same 100 validation examples:
+
+| Variant | Accuracy | Macro-F1 | Predicted Cantonese / Mandarin / corrupted |
+|---|---|---|---|
+| With definition | 0.53 | 0.4628 | 13 / 44 / 43 (gold 16 / 16 / 68) |
+| Without definition | 0.42 | 0.4328 | 44 / 39 / 17 |
+Results can be found in `results/llm_ablation.csv`, `results/llm_ablation_preds.jsonl`, and `results/ablation.csv`.
+For sensitivity, each task has one prompt variant `results/variant_sensitivity.csv`, and for the classical models, the n-gram and C grid gets logged in `results/runs.jsonl` and can be found within `all_validation_trials`.
+
+**Robustness**
+From the root, run: `python -m src.checks` to create `results/label_noise.csv`.
+This rescores the models after removing duplicate inputs and conflicting label inputs
+
+| Task | All rows | No duplicates | No conflicts | Unique only |
+|---|---|---|---|---|
+| LD | 0.538 | 0.538 | 0.539 | 0.539 |
+| Sentiment | 0.732 | 0.732 | 0.732 | 0.732 |
+| NLI | 0.875 | 0.873 | 0.875 | 0.870 |
+
+### Results package
+`results/experiment_log.csv` has one row for each run containing the date, model, task, split, configuration, hyperparameters, environment, result file, and observations.
+To collect all the results, run:
+
+```bash
+python scripts/assemble_package.py
+```
+**Reproduce Milestone 5**
+From the repository root, run:
+```bash
+git checkout v0.5-experiments
+```
+
+
 ## Source, licence and attribution
 
 CantoNLU is by Min et al. (2025), arXiv:2510.20670. The `canto-nlu` repository is released under MIT, and the project team lead confirmed that contributions should be treated as CC-BY. Attribute to Min et al. (2025).
