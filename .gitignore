@@ -1,3 +1,7 @@
 # GitIgnore File
 data/canto-nlu/
 __pycache__/
+
+# Output files
+results_package/
+results_package.zip
