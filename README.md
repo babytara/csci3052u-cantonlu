@@ -256,6 +256,7 @@ The ablation removes the definition of "corrupted" from the LD prompt and scores
 |---|---|---|---|
 | With definition | 0.53 | 0.4628 | 13 / 44 / 43 (gold 16 / 16 / 68) |
 | Without definition | 0.42 | 0.4328 | 44 / 39 / 17 |
+
 Results can be found in `results/llm_ablation.csv`, `results/llm_ablation_preds.jsonl`, and `results/ablation.csv`.
 For sensitivity, each task has one prompt variant `results/variant_sensitivity.csv`, and for the classical models, the n-gram and C grid gets logged in `results/runs.jsonl` and can be found within `all_validation_trials`.
 
