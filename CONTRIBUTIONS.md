@@ -27,7 +27,7 @@
 | Kabishan Sutharman | Title slide. The task (CantoNLU: language detection, sentiment, NLI), why it matters, the data pipeline and splits, and the primary metric.|
 | Jin Sutharman | Baseline vs LLM table on the same subset, confidence intervals, and one error finding (confusion matrix or example failures).|
 
-**Support Task **
+**Support Task**
 |Members | Support Task | Work |
 | --- | --- | --- |
 | Gabriel Pedraza Perez | Progress Report | Methods and theory, preliminary results, deviations, blockers, revised timeline, response to feedback. |
@@ -45,7 +45,7 @@
 | Kabishan Sutharman | Uncertainty and Comparison | Bootstrap 95% confidence intervals for macro-F1. Paired comparison of each model against the baselines on the same examples. State which gaps are within noise. |
 | Jin Sutharman | Writing and records | Draft the Results section. Build the main table or figure. Keep the experiment log. Compare the draft against the instructor’s sample when it arrives. Update the README, AI_USE.md and CONTRIBUTIONS.md. Tag the release. |
 
-**Support Task **
+**Support Task**
 | Members | Support Task | Work Done |
 | --- | --- | --- |
 | Gabriel Pedraza Perez | Experiment Log | One row per run: date, model, task, split, configuration, hyperparameters, environment, result file, observations|
