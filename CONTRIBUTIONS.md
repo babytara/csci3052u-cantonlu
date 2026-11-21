@@ -52,3 +52,4 @@
 | Omotara Suleiman | Results Package assembly | Result CSVs, predictions, figures and the log are in one folder in the format Canvas asks for|
 | Olohigbe Uantioje | AI_USE.md and CONTRIBUTIONS.md entries | Update AI use and contribution markdown |
 | Kabishan Sutarman | Release tag and README check | ag exists and every README table matches results/*.csv |
+|Jin Sutharman | Compelted writing and records,  built main tables and figure.| 
