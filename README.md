@@ -6,6 +6,8 @@ This project looks at how well large language models understand Cantonese using 
 
 **Milestone 4** adds a zero-shot LLM evaluation. This was performed on Claude Haiku 4.5 on small validation subsets. See "LLM evaluation" for details.
 
+**Milestone 55** includes model evaluations, comparisons, results, statistical analysis, error analysis, and conclusions.
+
 ## Repository structure
 
 | Folder / file | Contents |
@@ -193,7 +195,6 @@ not_entailment: Precision: 0.831, Recall: 0.980, Support: 50
 UNPARSED: Precision: 0.000, Recall: 0.000, Support: 0
 ```
 
-**Milestone 5**
 ## Test Set LLM run
 From the repository root, run:
 ```bash
